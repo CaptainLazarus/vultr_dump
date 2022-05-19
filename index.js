@@ -1,21 +1,21 @@
-const express = require("express");
-const path = require("path");
-
+const express = require('express');
+const path = require('path');
 const app = express();
 
-app.use(express.static(path.join(process.cwd() + "/public")));
+// app.use(express.static(path.join(process.cwd() + "/public")));
 
-app.use('*/css',express.static('public/css'));
-app.use('*/js',express.static('public/js'));
+// app.use('*/css',express.static('public/css'));
+// app.use('*/js',express.static('public/js'));
 
 // app.get("/", (req, res) => {
-//     res.sendFile(__dirname + "/index.html");
+//     res.sendFile(path.join(__dirname , "public" , "index.html"));
 //   });  
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
+app.use(express.static(path.join(__dirname, 'build')));
 
-app.listen(port);
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.listen(9000);
 
