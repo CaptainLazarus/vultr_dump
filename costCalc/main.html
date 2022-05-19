@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="mainCalc">
+      <form action="#" method="GET">
+        <label for="pages">Number of unique pages to be audited</label>
+        <br />
+        <input
+          required
+          type="text"
+          name="pages"
+          id="pages"
+          placeholder="Enter a number"
+        />
+        <br /><br />
+        <label for="type">Type of site</label>
+        <br />
+        <select name="type" id="type" required>
+          <option value="simple">Simple Information Site</option>
+          <option value="medium">Medium Ecommerce Website</option>
+          <option value="complex">
+            Banking, Insurance or other complex work flows
+          </option>
+        </select>
+        <br /><br />
+        <label for="hours">Consulting Hours</label>
+        <br />
+        <input type="number" id="hours" name="hours" required />
+        <br /><br />
+        <div id="buttonBar">
+          <input type="reset" class="btn" />
+          <button onclick="totalCost()" class="btn">Calculate</button>
+        </div>
+      </form>
+      <p>Total is : <span id="total"> </span></p>                                                  
+    </div>
+  </body>
+</html>
+
+<style>
+  #mainCalc {
+      /* justify-self: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2em;
+    background-color: #F2F5F7;
+    /* width: 50%;  */
+  }
+  #type,
+  #pages,
+  #hours {
+    background-color: white;
+    width: 70%;
+    transition: 0.4s;
+    /* height: 5em; */
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 0.8em;
+    padding-bottom: 0.1em;
+    padding-left: 0.2em;
+    appearance: none;
+    margin-top: 1em;
+    box-shadow: none;
+    outline: none;
+    color: grey;
+  }
+  #type:focus,
+  #pages:focus,
+  #hours:focus {
+    width: 100%;
+    transition: 0.4s;
+  }
+  #buttonBar {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+  }
+  .btn {
+    min-width: 10em;
+    height: 2em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* flex: 1; */
+    margin: 0.2em;
+    border: 2px solid black;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1em;
+    transition: 0.4s;
+  }
+  .btn:hover {
+    background-color: lightgreen;
+    transition: 0.4s;
+  }
+</style>
+
+<script>
+  function totalCost() {
+    event.preventDefault();
+    var valid = document.getElementsByTagName("form")[0].checkValidity();
+    console.log(valid);
+    if (valid) {
+      let pages = document.getElementById("pages").value;
+      let type = document.getElementById("type").value;
+      let hours = document.getElementById("hours").value;
+      console.log(pages + " | " + type + " | " + hours);
+      let typeVal = type === "simple" ? 200 : type === "medium" ? 350 : 500;
+      let total = parseInt(pages) * typeVal + 100 * parseInt(hours);
+      console.log(total);
+    //   document.getElementById("outputType").innerHTML = pages;
+    //   document.getElementById("outputPages").innerHTML = typeVal;
+    //   document.getElementById("outputHours").innerHTML = hours;
+
+      document.getElementById("total").innerHTML = total;
+    } else {
+        let pages = document.getElementById("pages").checkValidity();
+        // let type = document.getElementById("type").value;
+        let hours = document.getElementById("hours").checkValidity();
+        console.log(pages);
+        if(!pages){
+            // document.getElementById("pages").style.border = "3px solid red";
+            // document.getElementById("pages").style.transition = "5px solid red";
+            console.log("Pages invalidated");
+        }
+        if(!hours){
+
+        }
+        
+    }
+  }
+</script>
