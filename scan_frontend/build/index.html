@@ -1,137 +1,226 @@
 <!doctype html>
-<html>
-	<head>
-		<title>A11y Website Checker Demo</title>
+<html lang="en-US ">
 
-		<!--
+<head>
+	<title>Free Online Web Accessibility Checker (WCAG,ADA, AODA, EN 301549)</title>
+	<meta name="description" content="Free Online Website Accessibility Checker. Check how much of your web pages meet ADA compliance, Section 508 compliance, AODA Compliance,En 301549 compliance and WCAG compliance.   
+   <meta name=" author" content="Holistic Accessibility">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--
 		Base styling
 		-->
-		<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/styles.css">
 
-		<!--
+	<!--
 		Demo specific styling and fonts
 		-->
-		<link rel="stylesheet" href="css/demo.css">
-		<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;600;900&amp;display=swap" rel="stylesheet">
-	</head>
-	<body>
+	<link rel="stylesheet" href="css/demo.css">
+	<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;600;900&amp;display=swap" rel="stylesheet">
+	<nav> </nav>
+</head>
+<main style="width: 100%;">
 
-		<!--
+	<body style="display:flex;flex-direction: column; justify-content: space-between;">
+		<img src="https://holistica11y.com/wp-content/uploads/2022/03/ALLY.png" style="height: 100px; left: 5em; position: absolute;">
+		<!-- <div class="footer-widget-area widget-area site-footer-focus-item" data-section="section-footer-menu" style="justify-content: center; display:flex; font-size: 1.5em;">
+			<ul id="astra-footer-menu" style="display: flex;"
+				class="ast-nav-menu ast-flex astra-footer-horizontal-menu astra-footer-tablet-vertical-menu astra-footer-mobile-vertical-menu">
+				<li
+					class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-4052 current_page_item menu-item-4271">
+					<a href="https://holistica11y.com/" aria-current="page" class="menu-link">Home</a>
+				</li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5552">
+					<a href="https://holistica11y.com/about/" class="menu-link">About</a>
+				</li>
+				<li
+					class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4108">
+					<a href="https://holistica11y.com/services/" class="menu-link">Services<span
+							role="presentation" class="dropdown-menu-toggle"></span></a>
+				</li>
+				<li
+					class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3885">
+					<a href="https://holistica11y.com/services/trainings/" class="menu-link">Trainings<span
+							role="presentation" class="dropdown-menu-toggle"></span></a>
+				</li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3888">
+					<a href="https://holistica11y.com/blog/" class="menu-link">Blog</a>
+				</li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3886">
+					<a href="https://holistica11y.com/contact/" class="menu-link">Contact</a>
+				</li>
+			</ul>
+		</div> -->
+		<!-- <div style="height: 4em;"></div> -->
+		<div id="body-main">
+			<!--
 		Initial Form Screen
 		-->
-		<div id="a11yFormScreen" class="a11y-form-screen shown">
-			<div class="module-a11y-checker-container module-a11y-checker-container--narrow">
-				<header class="module-header">
-					<h1>Test Your Site&#8217;s Accessibility</h1>
-					<p class="instructions">Enter your URL for a free accessibility scan. This audit will quickly determine if your website meets basic legal standards.</p>
-				</header>
-				<form class="a11y-website-checker-form shown" id="a11yWebsiteChecker">
-					<input type="text" value="" class="form-input" placeholder="Enter a website url to test..." />
-					<button class="button button--primary form-submit" id="a11yWebsiteCheckerBtn">
-						<span class="visually-hidden">Scan now</span>
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" x="0px" y="0px"><path d="M67.34,15.9a3.55,3.55,0,1,0-5,5L87.85,46.44H3.53a3.56,3.56,0,0,0,0,7.11H87.85L62.3,79.06a3.62,3.62,0,0,0,0,5,3.53,3.53,0,0,0,5,0l31.6-31.6a3.47,3.47,0,0,0,0-5Z" fill="currentColor"/></svg>
-					</button>
-				</form>
+			<div id="a11yFormScreen" class="a11y-form-screen shown">
+				<div class="module-a11y-checker-container module-a11y-checker-container--narrow">
+					<header class="module-header">
+						<h1>Test Your Website&#8217;s Accessibility</h1>
+						<p class="instructions">Enter your URL for a free accessibility scan of a web page
+							. This audit will quickly determine if your website meets basic legal standards like ADA,
+							AODA, EN 301549.</p>
+					</header>
+					<form class="a11y-website-checker-form shown" id="a11yWebsiteChecker" style="flex-direction: column;">
+						<div>
+							<label for="scan1" style="color: transparent;">
+								Enter a website url to test
+							</label>
+						</div>
+						<div style="width: 100%; display: flex;;">
+							<input type="text" id="scan1" value="" class="form-input"
+							placeholder="Enter a website url to test..." style="width: 90%;"/>
+							<button class="button button--primary form-submit" id="a11yWebsiteCheckerBtn" style="width: 10%;">
+								<span class="visually-hidden">Scan now</span>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" x="0px" y="0px">
+									<path
+										d="M67.34,15.9a3.55,3.55,0,1,0-5,5L87.85,46.44H3.53a3.56,3.56,0,0,0,0,7.11H87.85L62.3,79.06a3.62,3.62,0,0,0,0,5,3.53,3.53,0,0,0,5,0l31.6-31.6a3.47,3.47,0,0,0,0-5Z"
+										fill="currentColor" />
+								</svg>
+							</button>
+						</div>
+						
+					</form>
+				</div>
 			</div>
-		</div>
 
-		<!--
+			<!--
 		Loading Bar
 		-->
-		<div class="a11y-website-checker-loading-bar" aria-live="polite" tabindex="0" style="display:none">
-			<img src="resources/images/loading.svg" alt="loading" aria-hidden="true" />
-			<span class="loading-text" id="loadingText">Warming up the scanner...</span>
-		</div>
+			<div class="a11y-website-checker-loading-bar" aria-live="polite" tabindex="0" style="display:none">
+				<img src="resources/images/loading.svg" alt="loading" aria-hidden="true" />
+				<span class="loading-text" id="loadingText">Warming up the scanner...</span>
+			</div>
 
-		<!--
+			<!--
 		Results Screen
 		-->
-		<div id="a11yResults" class="a11y-website-checker-results" style="display:none">
-			<div class="module-a11y-checker-container">
+			<div id="a11yResults" class="a11y-website-checker-results" style="display:none">
+				<div class="module-a11y-checker-container">
 
-				<header class="module-header">
-					<h1>Your Accessibility Report</h1>
-					<div class="results-website-name"></div>
-				</header>
-
-				<div class="results-overview">
-					<div class="results-overview-image">
-						<img src="" alt="screenshot" />
-					</div>
-					<div class="results-overview-content" tabindex="0">
-						<div class="results-score"></div>
-						<div>
-							<span class="results-description"></span>
-							<span class="help-tooltip" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="100% &ndash; Perfect<br>100%&ndash;90% &ndash; Above Average<br>90%&ndash;80% &ndash; Average<br>80% lower &ndash; Below Average">
-								<span class="visually-hidden">Help</span>
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25s-.559 1.25-1.25 1.25zm1.961-5.928c-.904.975-.947 1.514-.935 2.178h-2.005c-.007-1.475.02-2.125 1.431-3.468.573-.544 1.025-.975.962-1.821-.058-.805-.73-1.226-1.365-1.226-.709 0-1.538.527-1.538 2.013h-2.01c0-2.4 1.409-3.95 3.59-3.95 1.036 0 1.942.339 2.55.955.57.578.865 1.372.854 2.298-.016 1.383-.857 2.291-1.534 3.021z"/></svg>
-							</span>
-						</div>
-						<button class="restart-button" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Over" onclick="javascript:location.reload()">
-							<span class="visually-hidden">start over</span>
-							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M20.944 12.979c-.489 4.509-4.306 8.021-8.944 8.021-2.698 0-5.112-1.194-6.763-3.075l1.245-1.633c1.283 1.645 3.276 2.708 5.518 2.708 3.526 0 6.444-2.624 6.923-6.021h-2.923l4-5.25 4 5.25h-3.056zm-15.864-1.979c.487-3.387 3.4-6 6.92-6 2.237 0 4.228 1.059 5.51 2.698l1.244-1.632c-1.65-1.876-4.061-3.066-6.754-3.066-4.632 0-8.443 3.501-8.941 8h-3.059l4 5.25 4-5.25h-2.92z"/></svg>
-						</button>
-					</div>
-				</div>
-
-				<div class="instructions"></div>
-
-				<div class="a11y-website-checker-report">
-					<header class="report-header">
-						Results
+					<header class="module-header">
+						<h1>Your Accessibility Report</h1>
+						<div class="results-website-name"></div>
 					</header>
 
-					<div class="report-body">
-						<div class="report-category">
-							<button class="report-category-dropdown-button button dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#violations" aria-expanded="true" aria-controls="violations">
-								Violations
-								<span class="help-tooltip" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="These elements on your web page failed the WCAG 2.1 AA testing criteria">
+					<div class="results-overview">
+						<div class="results-overview-image">
+							<img src="" alt="screenshot" />
+						</div>
+						<div class="results-overview-content" tabindex="0">
+							<div class="results-score"></div>
+							<div>
+								<span class="results-description"></span>
+								<span class="help-tooltip" tabindex="0" data-bs-toggle="tooltip"
+									data-bs-placement="right"
+									title="100% &ndash; Perfect<br>100%&ndash;90% &ndash; Above Average<br>90%&ndash;80% &ndash; Average<br>80% lower &ndash; Below Average">
 									<span class="visually-hidden">Help</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25s-.559 1.25-1.25 1.25zm1.961-5.928c-.904.975-.947 1.514-.935 2.178h-2.005c-.007-1.475.02-2.125 1.431-3.468.573-.544 1.025-.975.962-1.821-.058-.805-.73-1.226-1.365-1.226-.709 0-1.538.527-1.538 2.013h-2.01c0-2.4 1.409-3.95 3.59-3.95 1.036 0 1.942.339 2.55.955.57.578.865 1.372.854 2.298-.016 1.383-.857 2.291-1.534 3.021z"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+										<path
+											d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25s-.559 1.25-1.25 1.25zm1.961-5.928c-.904.975-.947 1.514-.935 2.178h-2.005c-.007-1.475.02-2.125 1.431-3.468.573-.544 1.025-.975.962-1.821-.058-.805-.73-1.226-1.365-1.226-.709 0-1.538.527-1.538 2.013h-2.01c0-2.4 1.409-3.95 3.59-3.95 1.036 0 1.942.339 2.55.955.57.578.865 1.372.854 2.298-.016 1.383-.857 2.291-1.534 3.021z" />
+									</svg>
 								</span>
+							</div>
+							<button class="restart-button" tabindex="0" data-bs-toggle="tooltip"
+								data-bs-placement="bottom" title="Start Over" onclick="javascript:location.reload()">
+								<span class="visually-hidden">start over</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+									<path
+										d="M20.944 12.979c-.489 4.509-4.306 8.021-8.944 8.021-2.698 0-5.112-1.194-6.763-3.075l1.245-1.633c1.283 1.645 3.276 2.708 5.518 2.708 3.526 0 6.444-2.624 6.923-6.021h-2.923l4-5.25 4 5.25h-3.056zm-15.864-1.979c.487-3.387 3.4-6 6.92-6 2.237 0 4.228 1.059 5.51 2.698l1.244-1.632c-1.65-1.876-4.061-3.066-6.754-3.066-4.632 0-8.443 3.501-8.941 8h-3.059l4 5.25 4-5.25h-2.92z" />
+								</svg>
 							</button>
-							<div class="collapse show" id="violations">
-								<div class="report-category-dropdown-body">
-									<ul class="report-category-items"></ul>
+						</div>
+					</div>
+
+					<div class="instructions"></div>
+
+					<div class="a11y-website-checker-report">
+						<header class="report-header">
+							Results
+						</header>
+
+						<div class="report-body">
+							<div class="report-category">
+								<button class="report-category-dropdown-button button dropdown-toggle"
+									data-bs-toggle="collapse" data-bs-target="#violations" aria-expanded="true"
+									aria-controls="violations">
+									Violations
+									<span class="help-tooltip" tabindex="0" data-bs-toggle="tooltip"
+										data-bs-placement="right"
+										title="These elements on your web page failed the WCAG 2.1 AA testing criteria">
+										<span class="visually-hidden">Help</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+											viewBox="0 0 24 24">
+											<path
+												d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25s-.559 1.25-1.25 1.25zm1.961-5.928c-.904.975-.947 1.514-.935 2.178h-2.005c-.007-1.475.02-2.125 1.431-3.468.573-.544 1.025-.975.962-1.821-.058-.805-.73-1.226-1.365-1.226-.709 0-1.538.527-1.538 2.013h-2.01c0-2.4 1.409-3.95 3.59-3.95 1.036 0 1.942.339 2.55.955.57.578.865 1.372.854 2.298-.016 1.383-.857 2.291-1.534 3.021z" />
+										</svg>
+									</span>
+								</button>
+								<div class="collapse show" id="violations">
+									<div class="report-category-dropdown-body">
+										<ul class="report-category-items"></ul>
+									</div>
 								</div>
 							</div>
-						</div>
 
-						<div class="report-category">
-							<button class="report-category-dropdown-button button dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#passes" aria-expanded="false" aria-controls="passes">
-								Passes
-								<span class="help-tooltip" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="These elements on your web page passed the WCAG 2.1 AA testing criteria">
-									<span class="visually-hidden">Help</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25s-.559 1.25-1.25 1.25zm1.961-5.928c-.904.975-.947 1.514-.935 2.178h-2.005c-.007-1.475.02-2.125 1.431-3.468.573-.544 1.025-.975.962-1.821-.058-.805-.73-1.226-1.365-1.226-.709 0-1.538.527-1.538 2.013h-2.01c0-2.4 1.409-3.95 3.59-3.95 1.036 0 1.942.339 2.55.955.57.578.865 1.372.854 2.298-.016 1.383-.857 2.291-1.534 3.021z"/></svg>
-								</span>
-							</button>
-							<div class="collapse show" id="passes">
-								<div class="report-category-dropdown-body">
-									<ul class="report-category-items"></ul>
+							<div class="report-category">
+								<button class="report-category-dropdown-button button dropdown-toggle"
+									data-bs-toggle="collapse" data-bs-target="#passes" aria-expanded="false"
+									aria-controls="passes">
+									Passes
+									<span class="help-tooltip" tabindex="0" data-bs-toggle="tooltip"
+										data-bs-placement="right"
+										title="These elements on your web page passed the WCAG 2.1 AA testing criteria">
+										<span class="visually-hidden">Help</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+											viewBox="0 0 24 24">
+											<path
+												d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25s-.559 1.25-1.25 1.25zm1.961-5.928c-.904.975-.947 1.514-.935 2.178h-2.005c-.007-1.475.02-2.125 1.431-3.468.573-.544 1.025-.975.962-1.821-.058-.805-.73-1.226-1.365-1.226-.709 0-1.538.527-1.538 2.013h-2.01c0-2.4 1.409-3.95 3.59-3.95 1.036 0 1.942.339 2.55.955.57.578.865 1.372.854 2.298-.016 1.383-.857 2.291-1.534 3.021z" />
+										</svg>
+									</span>
+								</button>
+								<div class="collapse show" id="passes">
+									<div class="report-category-dropdown-body">
+										<ul class="report-category-items"></ul>
+									</div>
 								</div>
 							</div>
-						</div>
 
-						<div class="report-category">
-							<button class="report-category-dropdown-button button dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#incomplete" aria-expanded="false" aria-controls="incomplete">
-								Needs Review
-								<span class="help-tooltip" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="These elements on your web page require further testing">
-									<span class="visually-hidden">Help</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25s-.559 1.25-1.25 1.25zm1.961-5.928c-.904.975-.947 1.514-.935 2.178h-2.005c-.007-1.475.02-2.125 1.431-3.468.573-.544 1.025-.975.962-1.821-.058-.805-.73-1.226-1.365-1.226-.709 0-1.538.527-1.538 2.013h-2.01c0-2.4 1.409-3.95 3.59-3.95 1.036 0 1.942.339 2.55.955.57.578.865 1.372.854 2.298-.016 1.383-.857 2.291-1.534 3.021z"/></svg>
-								</span>
-							</button>
-							<div class="collapse show" id="incomplete">
-								<div class="report-category-dropdown-body">
-									<ul class="report-category-items"></ul>
+							<div class="report-category">
+								<button class="report-category-dropdown-button button dropdown-toggle"
+									data-bs-toggle="collapse" data-bs-target="#incomplete" aria-expanded="false"
+									aria-controls="incomplete">
+									Needs Review
+									<span class="help-tooltip" tabindex="0" data-bs-toggle="tooltip"
+										data-bs-placement="right"
+										title="These elements on your web page require further testing">
+										<span class="visually-hidden">Help</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+											viewBox="0 0 24 24">
+											<path
+												d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25s-.559 1.25-1.25 1.25zm1.961-5.928c-.904.975-.947 1.514-.935 2.178h-2.005c-.007-1.475.02-2.125 1.431-3.468.573-.544 1.025-.975.962-1.821-.058-.805-.73-1.226-1.365-1.226-.709 0-1.538.527-1.538 2.013h-2.01c0-2.4 1.409-3.95 3.59-3.95 1.036 0 1.942.339 2.55.955.57.578.865 1.372.854 2.298-.016 1.383-.857 2.291-1.534 3.021z" />
+										</svg>
+									</span>
+								</button>
+								<div class="collapse show" id="incomplete">
+									<div class="report-category-dropdown-body">
+										<ul class="report-category-items"></ul>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
-
 			</div>
-		</div>
 
+		</div>
+		
+		<!-- <footer style="bottom: 10px; width: 100%; background-color:linear-gradient(155deg, #1d3be4 20%, #27384b 98%)">
+		
+		</footer> -->
 		<!--
 		Score specific messages.
 		Customize the text and label values as desired.
@@ -168,18 +257,181 @@
 		<!--
 		Demo only scripts
 		-->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+			crossorigin="anonymous"></script>
 		<script type="text/javascript">
 			/**
 			 * Bootstrap Tooltips
 			 */
 			const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-			const tooltipList = tooltipTriggerList.map( (tooltipTriggerEl) => {
+			const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
 				return new bootstrap.Tooltip(tooltipTriggerEl, {
 					html: true,
 				});
 			});
 		</script>
+		<style>
+			.ast-footer-social-1-wrap .ast-builder-social-element svg {
+				width: 18px;
+				height: 18px;
+			}
+
+			#footer-main {
+				padding-top: 10px;
+			}
+
+			a {
+				text-decoration: none;
+				color: white;
+				margin-left: 1em;
+				margin-right: 1em;
+				font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+				font-size: 1em;
+			}
+
+			.menu-link {
+				display: inline-block;
+				position: relative;
+				color: white;
+				font-size: 1em;
+
+			}
+
+			ul {
+				list-style-type: none;
+			}
+
+			.menu-link:after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				transform: scaleX(0);
+				height: 2px;
+				bottom: 0;
+				left: 0;
+				background-color: white;
+				transform-origin: bottom right;
+				transition: transform 0.25s ease-out;
+			}
+
+			.menu-link:hover:after {
+				transform: scaleX(1);
+				transform-origin: bottom left;
+			}
+
+			.menu-link:hover {
+				color: white;
+			}
+
+			.svg-baseline {
+				fill: white;
+				margin-right: 10px;
+				margin-bottom: 2px;
+			}
+			@media (max-width: 1200px) 
+			{
+				img
+				{
+					display: none;
+				}
+			}
+
+		</style>
 
 	</body>
+</main>
+<!-- <footer>
+	<div id="footer-main">
+		<div class="ast-builder-grid-row-container-inner">
+			<div class="footer-widget-area widget-area site-footer-focus-item"
+				data-section="section-footer-menu" style="justify-content: center; display:flex">
+				<ul id="astra-footer-menu" style="display: flex;"
+					class="ast-nav-menu ast-flex astra-footer-horizontal-menu astra-footer-tablet-vertical-menu astra-footer-mobile-vertical-menu">
+					<li
+						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-4052 current_page_item menu-item-4271">
+						<a href="https://holistica11y.com/" aria-current="page" class="menu-link">Home</a>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5552">
+						<a href="https://holistica11y.com/about/" class="menu-link">About</a>
+					</li>
+					<li
+						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4108">
+						<a href="https://holistica11y.com/services/" class="menu-link">Services<span
+								role="presentation" class="dropdown-menu-toggle"></span></a>
+					</li>
+					<li
+						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3885">
+						<a href="https://holistica11y.com/services/trainings/" class="menu-link">Trainings<span
+								role="presentation" class="dropdown-menu-toggle"></span></a>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3888">
+						<a href="https://holistica11y.com/blog/" class="menu-link">Blog</a>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3886">
+						<a href="https://holistica11y.com/contact/" class="menu-link">Contact</a>
+					</li>
+				</ul>
+			</div>
+			<div style="height: 20px;"></div>
+			<div class="ast-builder-layout-element ast-flex site-footer-focus-item"
+				data-section="section-fb-social-icons-1">
+				<div class="ast-footer-social-1-wrap ast-footer-social-wrap"
+					style="display:flex ; justify-content: space-around;">
+					<div style="width:5px"></div> -->
+					<!-- <div
+						class="footer-social-inner-wrap element-social-inner-wrap social-show-label-true ast-social-color-type-custom ast-social-stack-none ast-social-element-style-filled">
+						<a href="https://www.facebook.com/holistica11y" aria-label="Facebook" target="_blank"
+							rel="noopener noreferrer" style="--color: #557dbc; --background-color: transparent;"
+							class="ast-builder-social-element ast-inline-flex ast-facebook footer-social-item"><span
+								class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg
+									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+									<path
+										d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z">
+									</path>
+								</svg></span><span class="social-item-label">Facebook</span></a><a
+							href="https://twitter.com/holistica11y" aria-label="Twitter" target="_blank"
+							rel="noopener noreferrer" style="--color: #7acdee; --background-color: transparent;"
+							class="ast-builder-social-element ast-inline-flex ast-twitter footer-social-item"><span
+								class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg
+									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+									<path
+										d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+									</path>
+								</svg></span><span class="social-item-label">Twitter</span></a><a href=""
+							aria-label="Instagram" target="_blank" rel="noopener noreferrer"
+							style="--color: #8a3ab9; --background-color: transparent;"
+							class="ast-builder-social-element ast-inline-flex ast-instagram footer-social-item"><span
+								class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg
+									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+									<path
+										d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z">
+									</path>
+								</svg></span><span class="social-item-label">Instagram</span></a><a
+							href="https://linkedin.com/company/holistica11y" aria-label="Linkedin"
+							target="_blank" rel="noopener noreferrer"
+							style="--color: #1c86c6; --background-color: transparent;"
+							class="ast-builder-social-element ast-inline-flex ast-linkedin footer-social-item"><span
+								class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg
+									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+									<path
+										d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+									</path>
+								</svg></span><span class="social-item-label">Linkedin</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="site-below-footer-wrap ast-builder-grid-row-container site-footer-focus-item ast-builder-grid-row-full ast-builder-grid-row-tablet-full ast-builder-grid-row-mobile-full ast-footer-row-stack ast-footer-row-tablet-stack ast-footer-row-mobile-stack"
+			data-section="section-below-footer-builder">
+			<div class="ast-footer-copyright"
+				style="display: flex; justify-content: space-around; margin-top: 20px;">
+				<div></div>
+				<p style="color:white;">Copyright © 2022 HolisticA11Y</p>
+				<div></div>
+			</div>
+		</div>
+	</div>
+</footer> --> -->
+
 </html>

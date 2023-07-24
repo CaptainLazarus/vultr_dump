@@ -1,140 +1,178 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="mainCalc">
-      <form action="#" method="GET">
-        <label for="pages">Number of unique pages to be audited</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="pages"
-          id="pages"
-          placeholder="Enter a number"
-        />
-        <br /><br />
-        <label for="type">Type of site</label>
-        <br />
-        <select name="type" id="type" required>
-          <option value="simple">Simple Information Site</option>
-          <option value="medium">Medium Ecommerce Website</option>
-          <option value="complex">
-            Banking, Insurance or other complex work flows
-          </option>
-        </select>
-        <br /><br />
-        <label for="hours">Consulting Hours</label>
-        <br />
-        <input type="number" id="hours" name="hours" required />
-        <br /><br />
-        <div id="buttonBar">
-          <input type="reset" class="btn" />
-          <button onclick="totalCost()" class="btn">Calculate</button>
-        </div>
-      </form>
-      <p>Total is : <span id="total"> </span></p>                                                  
+<div id="mainCalc">
+  <form action="#" method="GET">
+    <label for="pages">No. of unique pages to be audited</label>
+    <br>
+    <input required="" type="text" name="pages" id="pages" placeholder="Enter a number" value="0">
+    <br><br>
+    <label for="type">Type of site</label>
+    <br>
+    <select name="type" id="type" required="">
+      <option value="simple">Simple Information Site</option>
+      <option value="medium">Medium Ecommerce Website</option>
+      <option value="complex">
+        Banking, Insurance or other complex work flows
+      </option>
+    </select>
+    <br><br>
+    <input type="checkbox" name="vpat" id="vpat">
+    <label for="vpat">VPAT</label>
+    <input type="checkbox" name="re_audit" id="re_audit">
+    <label for="re_audit">Re-Audit</label>
+    <br><br>
+    
+    <label for="hours">No. of Consulting Hours</label>
+    <br>
+    <input type="number" id="hours" name="hours" value="0" required="">
+    <br><br>
+    <div id="buttonBar">
+      <button onclick="totalCost()" class="btn">Calculate</button>
+      <input type="reset" class="btn">
     </div>
-  </body>
-</html>
+  </form>
+  <p>The total cost is <span id="total"></span></p>                                                  
+</div>
+
 
 <style>
-  #mainCalc {
-      /* justify-self: center; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-family: "Montserrat", sans-serif;
-    font-size: 2em;
-    background-color: #F2F5F7;
-    /* width: 50%;  */
-  }
-  #type,
-  #pages,
-  #hours {
-    background-color: white;
-    width: 70%;
-    transition: 0.4s;
-    /* height: 5em; */
-    border: none;
-    border-bottom: 2px solid black;
-    font-size: 0.8em;
-    padding-bottom: 0.1em;
-    padding-left: 0.2em;
-    appearance: none;
-    margin-top: 1em;
-    box-shadow: none;
-    outline: none;
-    color: grey;
-  }
-  #type:focus,
-  #pages:focus,
-  #hours:focus {
-    width: 100%;
-    transition: 0.4s;
-  }
-  #buttonBar {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-  }
-  .btn {
-    min-width: 10em;
-    height: 2em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    /* flex: 1; */
-    margin: 0.2em;
-    border: 2px solid black;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1em;
-    transition: 0.4s;
-  }
-  .btn:hover {
-    background-color: lightgreen;
-    transition: 0.4s;
-  }
+#mainCalc {
+  /* justify-self: center; */
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+font-size: 2em;
+
+/* width: 50%;  */
+}
+#type,
+#pages,
+#hours {
+background-color: white;
+width: 70%;
+transition: 0.4s;
+/* height: 5em; */
+border: none;
+border-bottom: 2px solid black;
+font-size: 0.8em;
+padding-bottom: 0.1em;
+padding-left: 0.2em;
+appearance: none;
+box-shadow: none;
+outline: none;
+color: grey;
+background-color: #F9F9Fa;
+}
+#type:focus,
+#pages:focus,
+#hours:focus {
+width: 100%;
+transition: 0.4s;
+}
+#buttonBar {
+display: flex;
+width: 100%;
+flex-direction: row;
+}
+.btn {
+min-width: 10em;
+height: 2em;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+/* flex: 1; */
+margin: 0.2em;
+border: 2px solid black;
+font-size: 1em;
+transition: 0.4s;
+}
+.btn:hover {
+background-color: lightgreen;
+transition: 0.4s;
+}
+
+input[type="checkbox"] {
+  /* position: absolute; */
+  opacity: 100;
+  cursor: pointer;
+  height: 30;
+  width: 30;
+}
+
+/* .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+} */
+
 </style>
 
 <script>
-  function totalCost() {
-    event.preventDefault();
-    var valid = document.getElementsByTagName("form")[0].checkValidity();
-    console.log(valid);
-    if (valid) {
-      let pages = document.getElementById("pages").value;
-      let type = document.getElementById("type").value;
-      let hours = document.getElementById("hours").value;
-      console.log(pages + " | " + type + " | " + hours);
-      let typeVal = type === "simple" ? 200 : type === "medium" ? 350 : 500;
-      let total = parseInt(pages) * typeVal + 100 * parseInt(hours);
-      console.log(total);
-    //   document.getElementById("outputType").innerHTML = pages;
-    //   document.getElementById("outputPages").innerHTML = typeVal;
-    //   document.getElementById("outputHours").innerHTML = hours;
 
-      document.getElementById("total").innerHTML = total;
-    } else {
-        let pages = document.getElementById("pages").checkValidity();
-        // let type = document.getElementById("type").value;
-        let hours = document.getElementById("hours").checkValidity();
-        console.log(pages);
-        if(!pages){
-            // document.getElementById("pages").style.border = "3px solid red";
-            // document.getElementById("pages").style.transition = "5px solid red";
-            console.log("Pages invalidated");
-        }
-        if(!hours){
+// function p(x) {
+//   for (let index = 0; index < x.length; index++) {
+//     const element = x[index];
+//     str = 
+    
+//   }
+// }
 
-        }
-        
-    }
+function findValue(pages , value) {
+  var total_value = 0
+  if(pages <= 10){
+    total_value = pages*value;
   }
+  else if(pages > 10 && pages <= 20) {
+    total_value = 10*value + (0.95*(pages-10)*value);
+  }
+  else {
+    total_value = 10*value + Math.round(9.5*value) + Math.round(0.9*(pages-20)*value);
+  }
+  return total_value;
+}
+
+function totalCost() {
+event.preventDefault();
+var valid = document.getElementsByTagName("form")[0].checkValidity();
+console.log(valid);
+if (valid) {
+  let pages = document.getElementById("pages").value;
+  let type = document.getElementById("type").value;
+  let hours = document.getElementById("hours").value;
+  let re_audit = document.getElementById("re_audit").checked;
+  let vpat = document.getElementById("vpat").checked;
+
+  console.log(pages + " | " + type + " | " + hours + " | " + vpat + " | " + re_audit);
+  let typeVal = type === "simple" ? 200 : type === "medium" ? 350 : 500;
+  let total = parseInt(pages)*typeVal + findValue(parseInt(hours) , 100);
+  console.log(total);
+  if(re_audit){
+    total = Math.round(1.6*total);
+  }
+  if(vpat) {
+    total = total+3000;
+  }
+//   document.getElementById("outputType").innerHTML = pages;
+//   document.getElementById("outputPages").innerHTML = typeVal;
+//   document.getElementById("outputHours").innerHTML = hours;
+
+  document.getElementById("total").innerHTML = "$"+total;
+} else {
+    let pages = document.getElementById("pages").checkValidity();
+    // let type = document.getElementById("type").value;
+    let hours = document.getElementById("hours").checkValidity();
+    console.log(pages);
+    if(!pages){
+        // document.getElementById("pages").style.border = "3px solid red";
+        // document.getElementById("pages").style.transition = "5px solid red";
+        console.log("Pages invalidated");
+    }
+    if(!hours){
+
+    }
+    
+}
+}
 </script>
